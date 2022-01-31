@@ -16,7 +16,7 @@ class Berita extends Model
     public function FlexDB()
     {
         return DB::table('berita')
-        ->orderBy('id_berita','desc')
+        ->orderBy('tanggal_upload','desc')
         ->get();
     }
 

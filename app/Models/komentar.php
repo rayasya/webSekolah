@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 
 class komentar extends Model
 {
+    protected $table = 'komentar';
+    
     public function DescDB()
     {
         return DB::table('komentar')

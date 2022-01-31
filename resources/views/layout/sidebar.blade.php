@@ -36,6 +36,12 @@
           <span class="menu-title mt-1">Berita</span>
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/jurusan">
+          <i class="ti ti-medall menu-icon"></i>
+          <span class="menu-title mt-1">Jurusan</span>
+        </a>
+      </li>
       {{-- <li class="nav-item">
         <a class="nav-link" href="/agenda">
           <i class="ti-agenda menu-icon"></i>

@@ -72,6 +72,9 @@
             <li class="nav-item">
               <a class="nav-link" href="/terkini">Berita</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/tanggapan">Tanggapan</a>
+            </li>
           </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item" id="form">
@@ -193,16 +196,16 @@
         <div class="container">
           <div class="row">
             @foreach ($domain as $row)
-              <div class="col-sm-4 mb-3">
-                <div class="card">
-                  <img src="{{asset('domain').'/'.$row->foto}}" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">{{$row->judul}}</h5>
-                    <hr>
-                    <a href="{{$row->link}}" class="btn">Kunjungi  <i class="fas fa-angle-right"></i></a>
-                  </div>
+            <div class="size-web col-sm-6 col-lg-4 mb-5">
+              <div class="card">
+                <img src="{{asset('domain').'/'.$row->foto}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{$row->judul}}</h5>
+                  <hr>
+                  <a href="{{$row->link}}" class="btn">Kunjungi <i class="fas fa-angle-right"></i></a>
                 </div>
               </div>
+            </div>
             @endforeach
           </div>
         </div>
@@ -233,130 +236,73 @@
           </div>
           <ul class="nav nav-tabs mb-5" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
-              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#bm" role="tab" aria-controls="home" aria-selected="true"> <i class="fas fa-business-time"></i> Bisnis management (BM)</a>
+              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#bm" role="tab" aria-controls="home"
+                aria-selected="true"> <i class="fas fa-business-time"></i> Bisnis management (BM)</a>
             </li>
             <li class="nav-item" role="presentation">
-              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#it" role="tab" aria-controls="profile" aria-selected="false"> <i class="fab fa-react"></i> Teknologi Informatika (IT)</a>
+              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#it" role="tab" aria-controls="profile"
+                aria-selected="false"> <i class="fab fa-react"></i> Teknologi Informatika (IT)</a>
             </li>
             <li class="nav-item" role="presentation">
-              <a class="nav-link" id="contact-tab" data-toggle="tab" href="#art" role="tab" aria-controls="contact" aria-selected="false"> <i class="fas fa-video"></i> Seni (Art)</a>
+              <a class="nav-link" id="contact-tab" data-toggle="tab" href="#art" role="tab" aria-controls="contact"
+                aria-selected="false"> <i class="fas fa-video"></i> Seni (Art)</a>
             </li>
           </ul>
           <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="bm" role="tabpanel" aria-labelledby="home-tab">
               <div class="row">
-                <div class="col-sm-3 mb-4">
+                @foreach($bm as $bm)
+                <div class="col-sm-6 col-lg-3 mb-4">
                   <div class="card" data-aos="fade-down" data-aos-duration="500">
-                    <img src="{{asset('frontend')}}/img/ak.png" class="card-img-top img-fluid" alt="...">
+                    <img src="{{asset('jurusan-img')}}/{{$bm->foto}}" class="card-img-top img-fluid" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Akutansi</h5>
+                      <h5 class="card-title">{{$bm->nama}}</h5>
                       <p>
-                        Suatu proses mencatat, mengklarifikasi, meringkas, mengolah dan menyajikan data, transaksi serta kejadian yang berhubungan keuangan.
+                        {{$bm->deskripsi}}
                       </p>
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-3 mb-4">
-                  <div class="card" data-aos="fade-down" data-aos-duration="1000">
-                    <img src="{{asset('frontend')}}/img/pb.png" class="card-img-top img-fluid" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Perbankan</h5>
-                      <p>
-                        Bidang Studi yang fokus pada dunia keuangan, seperti bank, asuransi, lembaga simpan pinjam, pasar modal serta transaksi di dalamnya.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-3 mb-4">
-                  <div class="card" data-aos="fade-down" data-aos-duration="1500">
-                    <img src="{{asset('frontend')}}/img/ap.png" class="card-img-top img-fluid" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Administrasi Perkantoran</h5>
-                      <p>
-                        Serangkaian kegiatan sehari-hari yang berkaitan dengan perencanaan keuangan, penagihan dan pencatatan, personalia dan distribusi barang.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-3 mb-4">
-                  <div class="card" data-aos="fade-down" data-aos-duration="2000">
-                    <img src="{{asset('frontend')}}/img/bdp copy.png" class="card-img-top img-fluid" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Bisnis daring pemasaran</h5>
-                      <p>
-                        Keahlian yang mempelajari dasar-dasar kemampuan dan keilmuan marketing baik marketing secara konvosional maupun melalui media daring.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                @endforeach
               </div>
             </div>
             <div class="tab-pane fade" id="it" role="tabpanel" aria-labelledby="profile-tab">
               <div class="row">
-                <div class="col-sm-3 mb-4">
-                  <div class="card" data-aos="zoom-in">
-                    <img src="{{asset('frontend')}}/img/tkj-2.png" class="card-img-top img-fluid" alt="...">
+                @foreach($ti as $ti)
+                <div class="col-sm-6 col-lg-3 mb-4">
+                  <div class="card" data-aos="fade-down" data-aos-duration="500">
+                    <img src="{{asset('jurusan-img')}}/{{$ti->foto}}" class="card-img-top img-fluid" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Teknik Komputer Jaringan</h5>
+                      <h5 class="card-title">{{$ti->nama}}</h5>
                       <p>
-                        Teknik mempelajari tentang cara instalasi PC, instalasi LAN memperbaiki PC dan mempelajari program-progam PC dan Networking.
+                        {{$ti->deskripsi}}
                       </p>
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-3 mb-4">
-                  <div class="card" data-aos="zoom-in">
-                    <img src="{{asset('frontend')}}/img/rpl-2.png" class="card-img-top img-fluid" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Rekayasa Perangkat Lunak</h5>
-                      <p>
-                        Satu Bidang profesi yang mendalami cara-cara pengembangan perangkat lunak termasuk pembuatan aplikasi, pemeliharaan, dan manajement.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-3 mb-4">
-                  <div class="card" data-aos="zoom-in">
-                    <img src="{{asset('frontend')}}/img/multimedia.png" class="card-img-top img-fluid" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Multimedia</h5>
-                      <p>
-                        Teknik mempelajari tentang cara membuat sebuah animasi dan menggambar, sehingga pengguna bisa navigasi, berinteraksi dan berkarya.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                @endforeach
               </div>
             </div>
             <div class="tab-pane fade" id="art" role="tabpanel" aria-labelledby="contact-tab">
               <div class="row">
-                <div class="col-sm-3 mb-4">
-                  <div class="card" data-aos="zoom-in">
-                    <img src="{{asset('frontend')}}/img/tp3.png" class="card-img-top img-fluid" alt="...">
+                @foreach($seni as $seni)
+                <div class="col-sm-6 col-lg-3 mb-4">
+                  <div class="card" data-aos="fade-down" data-aos-duration="500">
+                    <img src="{{asset('jurusan-img')}}/{{$seni->foto}}" class="card-img-top img-fluid" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Teknik Pertelevisian</h5>
+                      <h5 class="card-title">{{$seni->nama}}</h5>
                       <p>
-                        Mengerjakan proyek multimedia, sebagai asisten riset, markerting,periklanan, industri online dan jurnalistik.
+                        {{$seni->deskripsi}}
                       </p>
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-3 mb-4">
-                  <div class="card" data-aos="zoom-in">
-                    <img src="{{asset('frontend')}}/img/PF.png" class="card-img-top img-fluid" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Perfilman</h5>
-                      <p>
-                        Mengerjakan proyek multimedia, sebagai asisten riset, markerting,periklanan, industri online dan jurnalistik.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                @endforeach
               </div>
             </div>
           </div>
-
-
+    
+    
         </div>
       </div>
     </div>
@@ -511,17 +457,17 @@
       <div class="jumbotron d-flex align-items-center">
         <div class="container">
           <div class="row">
-            <div class="col-sm-3">
-              <h3>Alamat</h3>
+            <div class="col-sm-5 col-lg-3 footer-info">
+              <h4>Alamat</h4>
               <p>Jl. HOS Cokroaminoto No. 110 Bondowoso, Jawa Timur Indonesia</p>
-
-              <h3>Hub</h3>
+    
+              <h4>Hub</h4>
               <p>Phone : 0332-4312-01</p>
               <p>Fax : 0332-4312-01</p>
               <p>Email : smkn1_bws@yahoo.com</p>
             </div>
-            <div class="col-sm-3">
-              <h3>Menu</h3>
+            <div class="col-sm-3 col-lg-3 footer-info">
+              <h4>Menu</h4>
               <p>Beranda</p>
               <p>Artikel</p>
               <p>Website kami</p>
@@ -529,32 +475,32 @@
               <p>Bidang keahlian</p>
               <p>Hubungi</p>
             </div>
-
-            <div class="col-sm-3">
-              <h3>Link Pintas</h3>
+    
+            <div class="col-sm-4 col-lg-3 footer-info">
+              <h4>Link Pintas</h4>
               <p>KEMENDIKBUD</p>
               <p>DITPSMK</p>
-
-              <h3>SosialMedia</h3>
+    
+              <h4>Sosial Media</h4>
               <p>Instagram</p>
               <p>Facebook</p>
             </div>
-
-            <div class="col-sm-3 logo-logo">
-              <div class="row">
-                <div class="col-sm-6">
-                  <img src="{{asset('frontend')}}/img/smakensa-1.png" width="150px">
+    
+            <div class="col-sm-12 col-lg-3 logo-logo">
+              <div class="row text-center">
+                <div class="col-6 col-sm-3 col-lg-6">
+                  <img src="{{asset('frontend')}}/img/smakensa-1.png" class="img-fluid">
                 </div>
-                <div class="col-sm-6">
-                  <img src="{{asset('frontend')}}/img/kemdikbud-1.png" width="150px">
+                <div class="col-6 col-sm-3 col-lg-6">
+                  <img src="{{asset('frontend')}}/img/kemdikbud-1.png" class="img-fluid">
                 </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-6">
-                  <img src="{{asset('frontend')}}/img/jatim-1.png" width="150px">
+    
+    
+                <div class="col-6 col-sm-3 col-lg-6">
+                  <img src="{{asset('frontend')}}/img/jatim-1.png" class="img-fluid">
                 </div>
-                <div class="col-sm-6">
-                  <img src="{{asset('frontend')}}/img/bondowoso-1.png" width="150px">
+                <div class="col-6 col-sm-3 col-lg-6">
+                  <img src="{{asset('frontend')}}/img/bondowoso-1.png" class="img-fluid">
                 </div>
               </div>
             </div>

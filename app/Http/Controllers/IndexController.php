@@ -11,6 +11,7 @@ use App\Models\komentar;
 use App\Models\Brand;
 use App\Models\Contact;
 use App\Models\Berita;
+use App\Models\Jurusan;
 use Illuminate\Support\Facades\DB;  
 
 use SweetAlert;
@@ -37,6 +38,9 @@ class IndexController extends Controller
             'agenda' => $this->AgendaModel->ShowDB(),
             'komentar' => $this->komentar->ShowDB(),
             'brand' => $this->Brand->ShowDB(),
+            'bm' => Jurusan::where('rumpun', '=', 'bm')->get(),
+            'ti' => Jurusan::where('rumpun', '=', 'ti')->get(),
+            'seni' => Jurusan::where('rumpun', '=', 'seni')->get(),
         ];
         return view('index',$data);
     }
@@ -44,6 +48,14 @@ class IndexController extends Controller
     public function komen(){
         return view('comment');
     }
+
+    public function tanggapan()
+    {
+        return view('comment', [
+            'komentar' => komentar::get(),
+        ]);
+    }
+
 
     public function save(){
         request()->validate([

@@ -12,16 +12,15 @@ use App\Http\Controllers\KomentarController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\JurusanController;
 
 Route::get('/',[IndexController::class,'index'])->name('frontend');
+Route::get('/tanggapan', [IndexController::class, 'tanggapan'])->name('tanggapan');
 Route::post('/contact/simpan',[IndexController::class,'contact']);
 Route::get('/komentar',[IndexController::class,'komen']);
 Route::post('/komentar/simpan',[IndexController::class,'save']);
 Route::get('/terkini',[IndexController::class,'terkini']);
 Route::get('/terkini/{judul}',[IndexController::class,'ShowBerita']);
-
-
-
 
 Route::get('/spanduk',[BannerController::class,'index'])->name('homebanner');
 Route::get('/spanduk/tambah',[BannerController::class,'add']);
@@ -83,3 +82,10 @@ Route::post('/berita/simpan',[BeritaController::class, 'save']);
 Route::get('/berita/edit/{id}',[BeritaController::class, 'edit']);
 Route::post('/berita/simpanedit/{id}',[BeritaController::class, 'update']);
 Route::get('/berita/hapus/{id}',[BeritaController::class, 'delete']);
+
+Route::get('/jurusan', [JurusanController::class, 'index'])->name('jurusan');
+Route::get('/jurusan/tambah', [JurusanController::class, 'add']);
+Route::post('/jurusan/simpan', [JurusanController::class, 'save']);
+Route::get('/jurusan/edit/{id}', [JurusanController::class, 'edit']);
+Route::post('/jurusan/simpanedit/{id}', [JurusanController::class, 'update']);
+Route::get('/jurusan/hapus/{id}', [JurusanController::class, 'delete']);
