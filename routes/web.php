@@ -13,6 +13,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\JurusanController;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/',[IndexController::class,'index'])->name('frontend');
 Route::get('/tanggapan', [IndexController::class, 'tanggapan'])->name('tanggapan');
